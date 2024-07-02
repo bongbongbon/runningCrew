@@ -1,6 +1,3 @@
-# Dockerfile 위치: /path/to/docker/project/
-# nginx.conf 위치: /path/to/docker/project/nginx/
-
 # Dockerfile
 
 # 이미지 선택: Node.js를 기반으로 한 공식 이미지 사용
@@ -23,7 +20,7 @@ RUN npm run build
 # Production 환경 설정
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
-COPY nginx/nginx.conf /etc/nginx/nginx.conf 
+COPY nginx.conf /etc/nginx/nginx.conf 
 
 # 80 포트 노출
 EXPOSE 80
