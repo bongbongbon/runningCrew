@@ -1,58 +1,39 @@
-name: CI/CD
+name: Deploy Frontend
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build React app
-        run: npm run build
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build Docker image
+      - name: Build frontend
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/react-app .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/react-app
+          cd frontend
+          npm install
+          npm run build
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
+      - name: Docker login
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
-    steps:
-      - name: Set target IP
+      - name: Build and push Docker image
         run: |
-          # Your deployment logic goes here
+          docker build -t yourdockerhubusername/frontend:latest ./frontend
+          docker push yourdockerhubusername/frontend:latest
 
-      - name: SSH into server and pull Docker image
+      - name: Docker compose
         uses: appleboy/ssh-action@master
         with:
           username: ubuntu
-          host: ${{ secrets.SERVER_IP }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.LIVE_SERVER_IP }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script_stop: true
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/react-app
-            docker-compose up -d
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
+            sudo docker-compose -f docker-compose.yml up -d
