@@ -3,7 +3,7 @@ import DaumPostcode from 'react-daum-postcode';
 // import Location from './KakaoMap';
 
 const DaumAddress = () => {
-    const[address, setAddress] = useState('');
+    // const[address, setAddress] = useState('');
 
     const completeHandler = (data) => {
         let fullAddress = data.address;
@@ -21,7 +21,7 @@ const DaumAddress = () => {
             fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
 
         }
-        setAddress(fullAddress);
+        // setAddress(fullAddress);
     };
 
     return (

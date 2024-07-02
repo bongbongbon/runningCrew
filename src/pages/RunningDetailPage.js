@@ -13,7 +13,7 @@ const RunningDetailPage = () => {
   const [user, setUser] = useState('');
   const navigate = useNavigate();
   const [runningUsers, setRunningUsers] = useState([]);
-  const [currentUserEmail, setCurrentUserEmail] = useState(null); // 현재 로그인한 사용자 이메일 상태 추가
+  // const [currentUserEmail, setCurrentUserEmail] = useState(null); // 현재 로그인한 사용자 이메일 상태 추가
 
 
   
