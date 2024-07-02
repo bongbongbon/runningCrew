@@ -15,6 +15,7 @@ jobs:
 
       - name: Build frontend
         run: |
+          cd frontend
           npm install
           npm run build
 
@@ -27,7 +28,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker buildx build -t ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
+          docker buildx build -t ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest ./frontend
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
 
       - name: Docker compose
