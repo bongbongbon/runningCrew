@@ -1,5 +1,5 @@
 /*global kakao*/ 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 
 
@@ -23,10 +23,10 @@ const Location=( {address} )=>{
 
         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-        var marker = new kakao.maps.Marker({
-          map: map,
-          position: coords
-      });
+      //   var marker = new kakao.maps.Marker({
+      //     map: map,
+      //     position: coords
+      // });
 
     
 

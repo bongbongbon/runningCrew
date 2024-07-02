@@ -17,7 +17,7 @@ const RunningList = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);  // 모달 변수 설정
   const [modalType, setModalType] = useState('');
   const [selectedStartLocation, setSelectedStartLocation] = useState('');
-  const [selectedFinishLocation, setSelectedFinishLocation] = useState('');
+  // const [selectedFinishLocation, setSelectedFinishLocation] = useState('');
   const [distance, setDistance] = useState({ min: '', max: ''});
 
 
@@ -58,9 +58,6 @@ const RunningList = () => {
     setModalType('');
   };
 
-  const handleDistanceChange = (min, max) => {
-    setDistance({ min, max });
-  };
 
   function getKoreanDate() {
     // 한국 표준시를 기준으로 현재 시간을 가져옵니다.

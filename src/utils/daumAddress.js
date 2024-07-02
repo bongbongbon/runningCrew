@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
-import Location from './KakaoMap';
+// import Location from './KakaoMap';
 
 const DaumAddress = () => {
     const[address, setAddress] = useState('');
