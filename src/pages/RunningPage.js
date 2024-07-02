@@ -178,10 +178,10 @@ const RunningList = () => {
           <h2>거리 선택</h2>
           <ul className='filter--list'>
             <li className='filter--list--item' onClick={() => {setDistance({min: '', max: ''}); closeModal(); }}>
-              <a>모든거리</a>
+              <p>모든거리</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 0, max: 1}); closeModal(); }}>
-                <a>1km 미만</a>
+                <p>1km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 1, max: 1.5}); closeModal(); }}>
               <a>1km ~ 1.5km 미만</a>
