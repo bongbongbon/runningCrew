@@ -1,21 +1,18 @@
-# Stage 1: 빌드 단계
-FROM node:alpine AS build
+# Stage 1: Build React App
+FROM node:14.17.0-alpine as build
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
-
+COPY package.json package-lock.json ./
+RUN npm install
 COPY . .
-RUN yarn build
+RUN npm run build
 
-# Stage 2: 서빙 단계
+# Stage 2: Serve React App with Nginx
 FROM nginx:alpine
 
 COPY --from=build /app/build /usr/share/nginx/html
-
-# Nginx 설정 추가
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
