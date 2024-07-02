@@ -161,13 +161,13 @@ const RunningList = () => {
             <h2>시작 지역 선택</h2>
             <ul className='filter--list'>
               <li className='filter--list--item' onClick={() => {setSelectedStartLocation(''); closeModal(); }}>
-                <a>모든시작지역</a>
+                <p>모든시작지역</p>
               </li>
               <li className='filter--list--item' onClick={() => {setSelectedStartLocation('서울'); closeModal(); }}>
-                <a>서울</a>
+                <p>서울</p>
               </li>
               <li className='filter--list--item' onClick={() => {setSelectedStartLocation('전남'); closeModal(); }}>
-                <a>전남</a>
+                <p>전남</p>
               </li>
             </ul>
           </div>
@@ -184,54 +184,54 @@ const RunningList = () => {
                 <p>1km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 1, max: 1.5}); closeModal(); }}>
-              <a>1km ~ 1.5km 미만</a>
+              <p>1km ~ 1.5km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 1.5, max: 2}); closeModal(); }}>
-              <a>1.5km ~ 2.0km 미만</a>
+              <p>1.5km ~ 2.0km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 2, max: 2.5}); closeModal(); }}>
-              <a>2.0km ~ 2.5km 미만</a>
+              <p>2.0km ~ 2.5km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 2.5, max: 3}); closeModal(); }}>
-              <a>2.5km ~ 3.0km 미만</a>
+              <p>2.5km ~ 3.0km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 3, max: 3.5}); closeModal(); }}>
-              <a>3.0km ~ 3.5km 미만</a>
+              <p>3.0km ~ 3.5km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 3.5, max: 4}); closeModal(); }}>
-              <a>3.5km ~ 4.0km 미만</a>
+              <p>3.5km ~ 4.0km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 4, max: 4.5}); closeModal(); }}>
-              <a>4.0km ~ 4.5km 미만</a>
+              <p>4.0km ~ 4.5km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 4.5, max: 5}); closeModal(); }}>
-              <a>4.5km ~ 5.0km 미만</a>
+              <p>4.5km ~ 5.0km 미만</p>
             </li>
             <p>5km 이상</p>
             <li className='filter--list--item' onClick={() => {setDistance({min: 5, max: 6}); closeModal(); }}>
-              <a>5.0km ~ 6.0km 미만</a>
+              <p>5.0km ~ 6.0km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 6, max: 7}); closeModal(); }}>
-              <a>6.0km ~ 7.0km 미만</a>
+              <p>6.0km ~ 7.0km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 7, max: 8}); closeModal(); }}>
-              <a>7.0km ~ 8.0km 미만</a>
+              <p>7.0km ~ 8.0km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 8, max: 9}); closeModal(); }}>
-              <a>8.0km ~ 9.0km 미만</a>
+              <p>8.0km ~ 9.0km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 9, max: 10}); closeModal(); }}>
-              <a>9.0km ~ 10.0km 미만</a>
+              <p>9.0km ~ 10.0km 미만</p>
             </li>
             <p>10.0km 이상</p>
             <li className='filter--list--item' onClick={() => {setDistance({min: 10, max: 15}); closeModal(); }}>
-              <a>10.0km ~ 15.0km 미만</a>
+              <p>10.0km ~ 15.0km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 15, max: 20}); closeModal(); }}>
-              <a>15.0km ~ 20.0km 미만</a>
+              <p>15.0km ~ 20.0km 미만</p>
             </li>
             <li className='filter--list--item' onClick={() => {setDistance({min: 20, max: 100}); closeModal(); }}>
-              <a>20.0km 이상</a>
+              <p>20.0km 이상</p>
             </li>
           </ul>
         </div>
