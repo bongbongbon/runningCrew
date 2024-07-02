@@ -27,7 +27,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
+          docker buildx build -t ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
 
       - name: Docker compose
@@ -39,4 +39,4 @@ jobs:
           script_stop: true
           script: |
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
-            sudo docker-compose -f docker-compose.yml up -d
+            sudo docker-compose -f docker-compose.yml up -ds
