@@ -23,7 +23,7 @@ RUN npm run build
 # Production 환경 설정
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
-COPY nginx/nginx.conf /etc/nginx/nginx.conf 
+COPY nginx/nginx.conf /etc/nginx/nginx.conf  # nginx.conf 파일이 nginx/ 디렉토리에 있을 경우
 
 # 80 포트 노출
 EXPOSE 80
