@@ -27,8 +27,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          cd /Users/kimsubong/Desktop/hello/runningCrew
-          docker build -t yourdockerhubusername/frontend:latest
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
 
       - name: Docker compose
