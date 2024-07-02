@@ -1,0 +1,122 @@
+ .card {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+
+.card-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-header .header-main {
+  margin-bottom: 10px; /* 두 번째 h2와의 간격을 벌리기 위해 마진 추가 */
+}
+
+.card-header .header-sub {
+  margin-top: 0; /* 기본 마진을 제거 */
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.card-write {
+    margin-bottom: 20px;
+  }
+
+  .card-write .title-w,
+.card-write .content-w,
+.card-write > div {
+  margin-bottom: 15px;
+}
+
+textarea.content-input {
+  height: 80px; /* 높이를 조정하여 입력 필드 크기를 키움 */
+  width: calc(100% - 10px); /* 기존 input 필드와 동일한 너비 설정 */
+  padding: 8px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none; /* 사용자가 크기를 조정할 수 없도록 설정 */
+}
+
+input.distance-input {
+  width: calc(100% - 10px);
+  padding: 8px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+.detail-address {
+  font-size: 15px;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: calc(100% - 10px);
+  padding: 8px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+
+  .ReactModal__Overlay {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+  }
+
+  .ReactModal__Content {
+    width: 400px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #218838;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* 좌우로 버튼을 배치 */
+    margin-top: 20px;
+  } 

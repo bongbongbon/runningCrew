@@ -1,0 +1,100 @@
+/* src/css/RunningDetailPage.css */
+
+.running-detail-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 98%);
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between; /* 양 사이드 정렬 */
+
+  }
+
+  
+  .running-detail h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .running-detail p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+
+.running-detail {
+    flex: 1; /* 좌측 섹션이 남은 공간을 모두 차지하도록 설정 */
+    margin-right: 20px; /* 좌우 여백 설정 */
+  }
+  
+  .running-detail .user-info {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    text-align: center;
+    color: #007BFF;
+    cursor: pointer;
+  }
+  
+  .running-detail .user-info:hover {
+    text-decoration: underline;
+  }
+  
+  .running-detail button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .running-detail button:hover {
+    background-color: #218838;
+  }
+  
+
+  /* 스타일 정의 파일 (예: RunningUserList.css) */
+.running-user-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .running-user-item {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .running-user-item h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .running-user-item p {
+    margin: 5px 0 0;
+    font-size: 1em;
+    color: #666;
+  }
+  
+
+  .running-user-list {
+    flex: 1; /* 우측 섹션이 남은 공간을 모두 차지하도록 설정 */
+    list-style-type: none;
+    padding: 0;
+  }
+  

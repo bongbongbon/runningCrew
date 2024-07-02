@@ -1,0 +1,107 @@
+.clickable-text {
+    cursor: pointer;
+    color: black;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.clickable-text:hover {
+    color: chartreuse;
+}
+
+/* FirstPage.css */
+.container {
+    width: 70%;
+    margin: 0 auto;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* 양 끝에 배치 */
+    align-items: center;
+  }
+  
+  .userMenu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* 양 끝으로 벌어지게 하기 위해 전체 너비 사용 */
+  }
+  
+  .navigation__wrapper {
+    display: flex;
+  }
+  .navigation__item {
+    margin-right: 1rem;
+  }
+
+  .tabWrap {
+    display: flex;
+  }
+  .swipe-tab {
+    display: flex;
+  }
+  
+  .filter--wrapper {
+    padding: 10px 0px;
+    margin: 0 auto;
+  }
+  
+  .filter--wrapper ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .filter--wrapper li {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-left: 5px;
+    padding: 0px 12px;
+    line-height: 32px;
+    height: 32px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #d9e0e6;
+    border-radius: 20px;
+  }
+  
+  .filter--wrapper li span {
+    cursor: pointer;
+  }
+
+  .searchBox {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* 오른쪽 정렬을 위해 왼쪽 여백 자동 설정 */
+    margin-right: 15px; /* 로그인과의 여백 설정 */
+  }
+  
+  .navigation__item {
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.navigation__item.on {
+  background-color: chartreuse; /* 선택된 항목의 배경색 */
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.clickable-text {
+    cursor: pointer;
+}
+
+.search-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-Img {
+    width: 20px;
+    height: 20px;
+}

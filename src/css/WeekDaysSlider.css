@@ -1,0 +1,24 @@
+.dateWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 5px;
+  }
+  
+  .dateWrap p, .dateWrap span {
+    padding-top: 15px;
+    font-size: 20px;
+    margin: 0;
+    text-align: center; /* 중앙 정렬 */
+    width: 100%; /* 부모 요소 기준으로 가로 폭을 채우기 위해 추가 */
+    display: flex;
+    justify-content: center; /* flexbox 내에서 텍스트 중앙 정렬 */
+  }
+  
+
+  .slick-next::before, .slick-prev::before {
+    color: chartreuse;
+  }

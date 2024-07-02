@@ -1,0 +1,14 @@
+.clickable-text {
+    cursor: pointer;
+    color: black;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.clickable-text:hover {
+    color: chartreuse;
+}
+
+.clickable {
+    cursor: pointer;
+  }
