@@ -1,0 +1,58 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build React app
+        run: npm run build
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/react-app .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/react-app
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set target IP
+        run: |
+          # Your deployment logic goes here
+
+      - name: SSH into server and pull Docker image
+        uses: appleboy/ssh-action@master
+        with:
+          username: ubuntu
+          host: ${{ secrets.SERVER_IP }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/react-app
+            docker-compose up -d
