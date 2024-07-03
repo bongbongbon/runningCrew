@@ -17,17 +17,17 @@ COPY . .
 # 애플리케이션 빌드
 RUN npm run build
 
-# 2. 실행 단계
-FROM node:14
+# 2. Nginx 단계
+FROM nginx:alpine
 
-# 앱 디렉토리 설정
-WORKDIR /app
+# Nginx 설정 파일 복사
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # 빌드된 애플리케이션 파일 복사
-COPY --from=build /app/build ./build
+COPY --from=build /app/build /usr/share/nginx/html
 
-# 3000번 포트 열기
-EXPOSE 3000
+# 80번 포트 열기
+EXPOSE 80
 
-# 애플리케이션 실행
-CMD ["node", "build/index.js"]
+# Nginx 실행
+CMD ["nginx", "-g", "daemon off;"]
