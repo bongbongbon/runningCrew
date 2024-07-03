@@ -4,7 +4,7 @@ WORKDIR /src
 
 COPY package.json .
 
-RUN yarn
+RUN npm install
 # or
 # RUN npm install 
 
@@ -12,6 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD [ "yarn", "start" ]
-# or
-# CMD [ "npm", "start" ]
+CMD [ "npm", "start" ]
