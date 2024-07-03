@@ -44,5 +44,5 @@ jobs:
           script_stop: true
           script: |
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
-            sudo docker-compose -f docker-compose-front.yml up -ds
+            sudo docker-compose -f docker-compose-front.yml up -d
 
