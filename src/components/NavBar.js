@@ -7,12 +7,12 @@ import '../css/Common/NavBar.css'
 const Navbar = () => {
     const navigate = useNavigate();
     const { user, logout } = useContext(AuthContext); // AuthContext에서 사용자 정보와 로그아웃 함수 가져오기
-    const [selectedPage, setSelectedPage] = useState('바로러닝'); // State to hold selected page
+
 
 
 
     const handlePageChange = (path, page) => {
-        setSelectedPage(page);
+
         navigate(path);
     }
 

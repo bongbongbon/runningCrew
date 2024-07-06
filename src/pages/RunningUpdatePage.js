@@ -24,7 +24,6 @@ const RunningUpdatePage = () => {
   const [message, setMessage] = useState('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [addressType, setAddressType] = useState(''); // 추가: 주소 타입 구분용 상태
-  const [running, setRunning] = useState('');
   const [loading, setLoading] = useState('');
 
 
@@ -115,6 +114,15 @@ const RunningUpdatePage = () => {
   const closeModal = () => {
     setModalIsOpen(false);
   };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
 
   return (
     <div className='card'>
