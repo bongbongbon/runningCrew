@@ -80,12 +80,9 @@
   background-color: #d9d9d9; /* 항목 호버 시 배경 색상 */
 }
 
-.clickable-text {
-  text-decoration: none; /* 링크의 기본 밑줄 제거 */
-  color: #007BFF; /* 텍스트 색상 */
-  cursor: pointer; /* 커서 모양을 포인터로 */
-}
-
-.clickable-text:hover {
-  text-decoration: underline; /* 호버 시 밑줄 추가 */
+.status {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽으로 정렬 */
+  margin-top: auto; /* 맨 아래로 이동 */
+  color: #666;
 }

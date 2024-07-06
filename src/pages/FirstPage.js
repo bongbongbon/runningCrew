@@ -39,9 +39,8 @@ const FirstPage = () => {
                             placeholder='지역 크루로 찾기'
                             className='searchInput'/>
 
-                        <button
-                            id='search-btn' className='search-btn'>
-                            <img src='/images/searchImage.png' alt='search icon' className='search-Img'/>
+                        <button className='search-btn'>
+                                버튼
                         </button>
                         </div>
 
@@ -69,7 +68,7 @@ const FirstPage = () => {
                     <h2 onClick={() => handlePageChange('/chalange', '챌린지')} className='clickable-text'>챌린지</h2>
                 </div>
                 <div className={`navigation__item ${selectedPage === '러닝만들기' ? 'on' : ''}`}>
-                    <h2 onClick={() => handlePageChange('/create/running', '러닝만들기')} className='clickable-text'>러닝만들기</h2>
+                    <h2 onClick={() => handlePageChange('/running/create', '러닝만들기')} className='clickable-text'>러닝만들기</h2>
                 </div>
             </div>
            

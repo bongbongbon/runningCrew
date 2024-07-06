@@ -8,17 +8,25 @@ function App() {
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
   const [nickname, setNickname] = useState('');
+  const [profileImage, setProfileImage] = useState(null); // Initialize as null
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('passwordCheck', passwordCheck);
+    formData.append('nickname', nickname);
+    formData.append('profileImage', profileImage);
+
     try {
-      const response = await axios.post('http://localhost:8080/user/register', {
-        email,
-        password,
-        passwordCheck,
-        nickname: nickname,
+      const response = await axios.post('http://localhost:8080/user/register', formData, {
+       headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       });
 
       if(response.status === 200) {
@@ -30,6 +38,10 @@ function App() {
       setMessage(error.response.data.errorMessage);
       alert(error.response.data.errorMessage);
     }
+  };
+
+  const handleFileChange = (e) => {
+    setProfileImage(e.target.files[0]);
   };
 
   return (
@@ -67,6 +79,15 @@ function App() {
             type="text"
             value={nickname}
             onChange={(e) => setNickname(e.target.value)}
+          />
+        </div>
+        <div className='form-group'>
+          <label>프로필 사진:</label>
+          <input
+            type="file"
+            id="profileImage"
+            accept="image/*"
+            onChange={handleFileChange}
           />
         </div>
         <button type="submit" className='signup-button'>완료</button>

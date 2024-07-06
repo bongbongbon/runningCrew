@@ -4,7 +4,7 @@ import axiosInstance from '../utils/axiosInstance';
 import DaumPostcode from "react-daum-postcode";
 import Modal from 'react-modal';
 import '../css/Running/RunningCreatePage.css';
-import '../css/Common.css';
+import '../css/Common/Common.css';
 
 Modal.setAppElement('#root');
 

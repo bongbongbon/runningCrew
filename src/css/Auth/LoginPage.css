@@ -35,29 +35,3 @@
     border-radius: 5px;
   }
   
-  .login-button {
-    padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .login-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .clickable-text {
-    text-align: center;
-    color: #007BFF;
-    cursor: pointer;
-  }
-  
-  .clickable-text:hover {
-    text-decoration: underline;
-  }
-  
-  .clickable-home {
-    cursor: pointer;
-  }

@@ -96,12 +96,6 @@
 }
 
 .search-btn {
-    background-color: transparent;
     border: none;
     cursor: pointer;
-}
-
-.search-Img {
-    width: 20px;
-    height: 20px;
 }

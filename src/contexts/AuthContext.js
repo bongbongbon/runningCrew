@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axiosInstance.get('/api/user/profile');
+        const response = await axiosInstance.post('/api/user/profile');
         setUser(response.data);
       } catch (error) {
         console.error('Failed to fetch user:', error);

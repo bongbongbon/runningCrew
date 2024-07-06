@@ -1,0 +1,27 @@
+.clickable-text {
+    cursor: pointer;
+    color: black;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.clickable-text:hover {
+    color: chartreuse;
+}
+
+.clickable {
+    cursor: pointer;
+  }
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* 양 끝에 배치 */
+    align-items: center;
+  }
+  
+.userMenu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* 양 끝으로 벌어지게 하기 위해 전체 너비 사용 */
+  }  
+  

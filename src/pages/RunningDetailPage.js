@@ -12,7 +12,9 @@ const RunningDetailPage = () => {
   const [error, setError] = useState(null);
   const [user, setUser] = useState('');
   const navigate = useNavigate();
-  const [runningUsers, setRunningUsers] = useState([]);
+  const [runningUsers, setRunningUsers] = useState([]); 
+  const [isJoined, setIsJoined] = useState(false); // 참가 상태를 관리하는 상태 변수 추가
+
   // const [currentUserEmail, setCurrentUserEmail] = useState(null); // 현재 로그인한 사용자 이메일 상태 추가
 
 
@@ -39,14 +41,29 @@ const RunningDetailPage = () => {
   }, [id]);
 
   // 런닝 참여하기
+  
   const handleJoinTeam = async () => {
     try {
       const response = await axiosInstance.post(`/api/runnings/users/join/${id}`);
       console.log('Join team response:', response.data);
       alert('팀에 성공적으로 합류했습니다.');
       navigate('/');
+      setIsJoined(true);
+      console.log(isJoined);
     } catch (error) {
       console.error('Error joining team:', error);
+      alert(error.response.data.errorMessage);
+    }
+  };
+
+  const handleLeaveTeam = async () => {
+    try {
+      const response = await axiosInstance.post(`/api/runnings/users/leave/${id}`);
+      console.log('Leave team response:', response.data);
+      alert('팀에서 성공적으로 나갔습니다.');
+      setIsJoined(false); // 참가 상태를 false로 설정
+    } catch (error) {
+      console.error('Error leaving team:', error);
       alert(error.response.data.errorMessage);
     }
   };
@@ -58,6 +75,8 @@ const RunningDetailPage = () => {
         const response = await axiosInstance.post(`/api/runnings/users/get/${id}`);
         setRunningUsers(response.data.data); // API에서 반환하는 데이터 구조에 따라 설정
         console.log(response.data.data);
+
+        
       } catch (error) {
         console.error('Error fetching running detail:', error);
         setError('런닝 유저를 불러오는 중 오류가 발생했습니다.');
@@ -70,12 +89,10 @@ const RunningDetailPage = () => {
   }, [id]);
 
 
-  
-
 
     // 수정 버튼 클릭 시 처리
     const handleEdit = () => {
- 
+        navigate(`/running/update/${id}`)
       };
     
       // 삭제 버튼 클릭 시 처리
@@ -125,8 +142,12 @@ const RunningDetailPage = () => {
         <p>거리: {running.distance}km</p>
         <p>시작 시간: {running.time}</p>
         <p>제한 인원: {running.limitedPeople}명</p>
-        <button onClick={() => handleJoinTeam()}>참가하기</button>
-          <div>
+        {isJoined ? (
+          <button onClick={handleLeaveTeam}>취소하기</button>
+        ) : (
+          <button onClick={handleJoinTeam}>참가하기</button>
+        )}          
+        <div>
             <button onClick={handleEdit}>수정</button>
             <button onClick={handleDelete}>삭제</button>
           </div>

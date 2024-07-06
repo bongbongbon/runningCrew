@@ -136,6 +136,7 @@ const RunningList = () => {
           },
         });
         setRunnings(response.data.data || []); // 데이터를 설정하고, 없으면 빈 배열로 초기화
+        console.log(response.data.data);
       } catch (error) {
         console.error('Error fetching boards:', error);
         setError('게시판 목록을 가져오는 중 오류가 발생했습니다.');
@@ -287,6 +288,8 @@ const RunningList = () => {
                     <p>제한 인원: {running.limitedPeople}명</p>
                     <p>시작 위치: {running.startLocation}</p>
                     <p>도착 위치: {running.finishLocation}</p>
+                    <p>인원: {running.runningUserCount} / {running.limitedPeople}{running.runningStatus === 'COMPLETE' ? '마감완료' : '신청가능'}</p>
+                    <p></p>
                     <p>거리: {running.distance}km</p>
                   </div>
                 </div>

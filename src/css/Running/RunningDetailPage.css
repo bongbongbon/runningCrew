@@ -34,15 +34,7 @@
     flex: 1; /* 좌측 섹션이 남은 공간을 모두 차지하도록 설정 */
     margin-right: 20px; /* 좌우 여백 설정 */
   }
-  
-  .running-detail .user-info {
-    margin-top: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-    text-align: center;
-    color: #007BFF;
-    cursor: pointer;
-  }
+
   
   .running-detail .user-info:hover {
     text-decoration: underline;
