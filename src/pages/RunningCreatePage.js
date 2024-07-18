@@ -5,6 +5,9 @@ import DaumPostcode from "react-daum-postcode";
 import Modal from 'react-modal';
 import '../css/Running/RunningCreatePage.css';
 import '../css/Common/Common.css';
+import Header from '../components/Header';
+import NavBar from '../components/NavBar';
+
 
 Modal.setAppElement('#root');
 
@@ -83,6 +86,13 @@ const App = () => {
   };
 
   return (
+    <div className='container'>
+      <div>
+        <Header />
+      </div>
+      <div>
+          <NavBar />
+      </div>
     <div className='card'>
       <div className='card-header'>
         <h2 className='header-main clickable-text' onClick={() => navigate("/")}>RUNNING CREW</h2>
@@ -214,9 +224,9 @@ const App = () => {
           <button type="button" onClick={handlePrevious}>이전</button>
           <button type="submit">완료</button>
         </form>
+        
       )}
 
-      <p>{message}</p>
 
       <Modal
         isOpen={modalIsOpen}
@@ -228,6 +238,7 @@ const App = () => {
 
         <button onClick={closeModal}>닫기</button>
       </Modal>
+    </div>
     </div>
   );
 };

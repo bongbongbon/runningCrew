@@ -1,8 +1,8 @@
 /* src/css/RunningDetailPage.css */
+/* FirstPage.css */
 
 .running-detail-container {
-    width: 100%;
-    max-width: 600px;
+    width: 70%;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;

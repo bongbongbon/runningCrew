@@ -35,3 +35,8 @@
     border-radius: 5px;
   }
   
+
+.password-reset-link {
+  text-align: right;
+}
+

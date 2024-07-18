@@ -48,6 +48,11 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <div>
+        <p className='password-reset-link clickable' onClick={() => handlePageChange('/password-reset')}>
+          비밀번호 재설정
+        </p>
+        </div>
         <button type="submit" className='login-button'>로그인</button>
       </form>
       <h2 onClick={() => handlePageChange('/signup')} className='clickable-text'>회원가입</h2>

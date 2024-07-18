@@ -1,0 +1,157 @@
+/* src/css/Crew/CrewDetailPage.css */
+
+.crew-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.crew-detail {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.crew-banner {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.crew-detail h2 {
+  margin-top: 0;
+  font-size: 1.8em;
+  color: #333;
+}
+
+.crew-detail p {
+  font-size: 1em;
+  color: #666;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+.likes-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+
+.likes-container p {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+.heart-icon {
+  color: #ccc;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.heart-icon.liked {
+  color: red;
+}
+
+.heart-icon:hover {
+  color: red;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+button:focus {
+  outline: none;
+}
+
+.replies {
+  margin-top: 20px;
+}
+.reply-button {
+  text-align: right;
+}
+
+.reply-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px; /* 각 링크 간의 간격을 설정 */
+}
+
+.reply-actions .clickable {
+  cursor: pointer;
+}
+
+
+.reply-user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px; /* 간격 조정 */
+}
+
+.profile-image {
+  width: 40px; /* 프로필 이미지 크기 조정 */
+  height: 40px;
+  border-radius: 50%; /* 원형 모양으로 */
+  margin-right: 12px; /* 프로필 이미지와 닉네임 사이 간격 */
+}
+
+.reply-user-info p {
+  font-weight: bold; /* 닉네임 폰트 굵기 */
+}
+
+.reply {
+  border-bottom: 1px solid #ccc; /* 얇은 회색 선 */
+  padding-bottom: 10px; /* 하단 간격 조정 */
+  margin-bottom: 10px; /* 하단 마진 조정 */
+}
+
+.reply-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reply-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.reply-form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reply-form button:hover {
+  background-color: #45a049;
+}

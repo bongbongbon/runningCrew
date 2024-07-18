@@ -1,8 +1,10 @@
 // src/pages/RunningDetailPage.js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axiosInstance from '../utils/axiosInstance';
 import '../css/Running/RunningDetailPage.css'; // CSS 파일 import
+import Header from '../components/Header';
+import { AuthContext } from '../contexts/AuthContext';
 
 
 const RunningDetailPage = () => {
@@ -14,6 +16,7 @@ const RunningDetailPage = () => {
   const navigate = useNavigate();
   const [runningUsers, setRunningUsers] = useState([]); 
   const [isJoined, setIsJoined] = useState(false); // 참가 상태를 관리하는 상태 변수 추가
+  const { user: currentUser } = useContext(AuthContext); // AuthContext 사용
 
   // const [currentUserEmail, setCurrentUserEmail] = useState(null); // 현재 로그인한 사용자 이메일 상태 추가
 
@@ -47,9 +50,9 @@ const RunningDetailPage = () => {
       const response = await axiosInstance.post(`/api/runnings/users/join/${id}`);
       console.log('Join team response:', response.data);
       alert('팀에 성공적으로 합류했습니다.');
-      navigate('/');
+      navigate(`/running/detail/${id}`);
       setIsJoined(true);
-      console.log(isJoined);
+      window.location.reload(); // 페이지 새로고침(새로고침 없이 동기화 작업 진행 해봐야함)
     } catch (error) {
       console.error('Error joining team:', error);
       alert(error.response.data.errorMessage);
@@ -58,15 +61,26 @@ const RunningDetailPage = () => {
 
   const handleLeaveTeam = async () => {
     try {
-      const response = await axiosInstance.post(`/api/runnings/users/leave/${id}`);
-      console.log('Leave team response:', response.data);
+      const response = await axiosInstance.delete(`/api/runnings/users/leave/${id}`)
+      
       alert('팀에서 성공적으로 나갔습니다.');
       setIsJoined(false); // 참가 상태를 false로 설정
+      window.location.reload(); // 페이지 새로고침(새로고침 없이 동기화 작업 진행 해봐야함)
     } catch (error) {
       console.error('Error leaving team:', error);
       alert(error.response.data.errorMessage);
     }
   };
+
+  const handleTeamLeaderLeaveTeam = async (runningUserId) => {
+    console.log(runningUserId);
+    try{
+      const response = await axiosInstance.delete(`/api/runnings/users/leave/${id}/${runningUserId}`)
+      alert(runningUserId + '님이 내보내기 되었습니다.')
+    } catch (error) {
+      alert(error.response.data.errorMessage);
+    }
+  }
 
   // 런닝유저 불러오기
   useEffect(() => {
@@ -127,6 +141,10 @@ const RunningDetailPage = () => {
 
 
   return (
+    <div className='container'>
+      <div>
+        <Header />
+      </div>
     <div className="running-detail-container">
       <div className="running-detail">
         <h2 className='clickable' onClick={() => handlePageChange('/')}>RUNNING CREW</h2>
@@ -142,15 +160,19 @@ const RunningDetailPage = () => {
         <p>거리: {running.distance}km</p>
         <p>시작 시간: {running.time}</p>
         <p>제한 인원: {running.limitedPeople}명</p>
-        {isJoined ? (
-          <button onClick={handleLeaveTeam}>취소하기</button>
-        ) : (
-          <button onClick={handleJoinTeam}>참가하기</button>
-        )}          
-        <div>
-            <button onClick={handleEdit}>수정</button>
-            <button onClick={handleDelete}>삭제</button>
+        {currentUser && currentUser.email !== user.email && (
+          <div>
+            <button onClick={handleJoinTeam}>참가하기</button>
+            <button onClick={() => handleLeaveTeam()}>취소하기</button>
           </div>
+        )}
+       
+        {currentUser && currentUser.email === user.email && (
+            <div>
+              <button onClick={handleEdit}>수정</button>
+              <button onClick={handleDelete}>삭제</button>
+            </div>
+          )}
 
       </div>
 
@@ -158,12 +180,17 @@ const RunningDetailPage = () => {
       <h2>참가유저</h2>
 
       <ul className="running-user-list">
-          {runningUsers.map((runnningUser) => (
-            <li key={runnningUser.id} className="running-user-item">{runnningUser.user.nickname}</li>
+          {runningUsers.map((runningUser) => (
+            <li key={runningUser.id} className="running-user-item">{runningUser.user.nickname}
+                       {currentUser && currentUser.email === user.email && ( // 현재 사용자가 런닝장인지 확인
+                  <button className='leave-by-admin' onClick={() => handleTeamLeaderLeaveTeam(runningUser.id)}>내보내기</button>
+                )}
+            </li>
           ))}
         </ul>
     </div>
 
+    </div>
     </div>
   );
 };

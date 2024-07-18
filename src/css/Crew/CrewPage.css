@@ -1,0 +1,106 @@
+/* src/css/First/FirstPage.css */
+
+.crew-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .crew-item {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+  }
+  
+  .crew-item__time {
+    flex: 0 0 60px; /* 시간 정보의 고정 너비 */
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center; /* 시간 정보를 중앙에 정렬 */
+  }
+  
+  .crew-item__info {
+    flex: 1;
+    padding-left: 20px; /* 시간 정보와 내용 사이의 간격 */
+  }
+  
+  .crew-item h3 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+  }
+  
+  .crew-item p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #333;
+  }
+  
+  .crew-item .item-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .crew-item .item-details p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .no-data-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Adjust height as needed */
+    font-size: 1.5em;
+    color: #666;
+  }
+
+  /* src/css/FilterList.css */
+.filter--list {
+  list-style: none; /* 기본 리스트 스타일 제거 */
+  padding: 0; /* 리스트의 기본 패딩 제거 */
+  margin: 0; /* 리스트의 기본 마진 제거 */
+  display: flex; /* 리스트 항목을 가로로 정렬 */
+  flex-direction: column; /* 세로 방향 정렬 */
+  gap: 10px; /* 항목 간의 간격 설정 */
+}
+
+.filter--list--item {
+  background-color: #f0f0f0; /* 항목 배경 색상 */
+  border-radius: 5px; /* 항목 모서리를 둥글게 */
+  padding: 10px; /* 항목 내부 여백 */
+  transition: background-color 0.3s; /* 호버 효과의 전환 시간 */
+}
+
+.filter--list--item:hover {
+  background-color: #d9d9d9; /* 항목 호버 시 배경 색상 */
+}
+
+.status {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽으로 정렬 */
+  margin-top: auto; /* 맨 아래로 이동 */
+  color: #666;
+}
+
+.likes-container {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .crew-heart-icon {
+    margin-left: 5px;
+    color: red;
+  }
+  
+  .item-details {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+  }
